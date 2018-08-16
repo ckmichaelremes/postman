@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "a384e0cc-e89f-4348-8bfa-1aac9636c366",
+		"name": "testingCollection",
+		"description": "Just for testing the API documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Method1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcc9c186-f9e6-4160-aa74-30b87d8b8444",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "postman-echo.com/get",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				},
+				"description": "Testing markdown `GET`"
+			},
+			"response": [
+				{
+					"name": "Method1_Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, application/xml",
+								"disabled": false
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "postman-echo.com/get",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"name": "Content-Encoding",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"key": "Content-Length",
+							"value": "234",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Aug 2018 11:28:49 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14d-21W5Q6SJU0j02mUOKaEEBRyfbpc\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "nginx",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3ARy0lKaJH8oKLKXwR1wkv-68nVuVhW7s9.zCr1iqN2zrbdTzuzeKBDdOTYO5MxwXdKyglNU0rpPcA; Path=/; HttpOnly",
+							"name": "set-cookie",
+							"description": "an HTTP cookie"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT+0000 (GMT)",
+							"httpOnly": true,
+							"domain": "postman-echo.com",
+							"path": "/",
+							"secure": false,
+							"value": "s%3ARy0lKaJH8oKLKXwR1wkv-68nVuVhW7s9.zCr1iqN2zrbdTzuzeKBDdOTYO5MxwXdKyglNU0rpPcA",
+							"key": "sails.sid"
+						}
+					],
+					"body": "{\"args\":{},\"headers\":{\"host\":\"postman-echo.com\",\"accept\":\"application/json, application/xml\",\"accept-encoding\":\"gzip, deflate\",\"cache-control\":\"no-cache\",\"postman-token\":\"9981f695-54ca-4254-bf17-2e401a0c86a6\",\"user-agent\":\"PostmanRuntime/7.2.0\",\"x-forwarded-port\":\"80\",\"x-forwarded-proto\":\"http\"},\"url\":\"http://postman-echo.com/get\"}"
+				}
+			]
+		},
+		{
+			"name": "RandomUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "860a7411-2061-46ef-8f2e-44214be010f0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://randomuser.me/api?gender=male&nat=us",
+					"protocol": "http",
+					"host": [
+						"randomuser",
+						"me"
+					],
+					"path": [
+						"api"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "male"
+						},
+						{
+							"key": "nat",
+							"value": "us"
+						}
+					]
+				},
+				"description": "another testing documentation"
+			},
+			"response": [
+				{
+					"name": "RandomUserExample",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://randomuser.me/api?gender=male&nat=us",
+							"protocol": "http",
+							"host": [
+								"randomuser",
+								"me"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "male"
+								},
+								{
+									"key": "nat",
+									"value": "us"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "CF-RAY",
+							"value": "449c94e8dcc83566-LHR",
+							"name": "CF-RAY",
+							"description": "Custom header"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"name": "Content-Encoding",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Aug 2018 16:33:08 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"456-rKG/99dRjuWePDsk5Zn09Q\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+							"name": "Expect-CT",
+							"description": "Custom header"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Aug 13 2019 17:31:54 GMT+0100 (BST)",
+							"httpOnly": true,
+							"domain": "randomuser.me",
+							"path": "/",
+							"secure": false,
+							"value": "d9cf859de2330ed9b8780043073d8643b1534177914",
+							"key": "__cfduid"
+						}
+					],
+					"body": "{\"results\":[{\"gender\":\"male\",\"name\":{\"title\":\"mr\",\"first\":\"seth\",\"last\":\"price\"},\"location\":{\"street\":\"4590 dogwood ave\",\"city\":\"chula vista\",\"state\":\"tennessee\",\"postcode\":13750,\"coordinates\":{\"latitude\":\"-67.0743\",\"longitude\":\"134.5729\"},\"timezone\":{\"offset\":\"-7:00\",\"description\":\"Mountain Time (US & Canada)\"}},\"email\":\"seth.price@example.com\",\"login\":{\"uuid\":\"b2722d0c-3a31-4048-aea0-5228daf724e1\",\"username\":\"tinymouse154\",\"password\":\"panama\",\"salt\":\"VnPoebrF\",\"md5\":\"f800b30006a5c3d84e374b564a4da9d4\",\"sha1\":\"5abb0f54060fec2f1d815c531711c0d3869b1779\",\"sha256\":\"c7ef07a0ae4c17f0a18b9b4904ece59d90c8e4db0c64c6d923cec777f78772c9\"},\"dob\":{\"date\":\"1963-01-24T09:23:19Z\",\"age\":55},\"registered\":{\"date\":\"2004-04-15T00:50:59Z\",\"age\":14},\"phone\":\"(586)-941-3905\",\"cell\":\"(191)-234-9069\",\"id\":{\"name\":\"SSN\",\"value\":\"100-82-1372\"},\"picture\":{\"large\":\"https://randomuser.me/api/portraits/men/16.jpg\",\"medium\":\"https://randomuser.me/api/portraits/med/men/16.jpg\",\"thumbnail\":\"https://randomuser.me/api/portraits/thumb/men/16.jpg\"},\"nat\":\"US\"}],\"info\":{\"seed\":\"3fcc0a4a1d79120a\",\"results\":1,\"page\":1,\"version\":\"1.2\"}}"
+				}
+			]
+		},
+		{
+			"name": "AnotherMethod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0360ae2-9ed4-4b6e-8cd7-a4ce6c76dd3f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://postman-echo.com/get?foo1=bar1&foo2=bar2",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "foo1",
+							"value": "bar1"
+						},
+						{
+							"key": "foo2",
+							"value": "bar2"
+						}
+					]
+				},
+				"description": "The HTTP GET request method is meant to retrieve data from a server. The data is identified by a unique URI (Uniform Resource Identifier).\n\nA GET request can pass parameters to the server using \"Query String Parameters\". For example, in the following request,\n\nhttp://example.com/hi/there?hand=wave\n\nThe parameter \"hand\" has the value \"wave\".\n\nThis endpoint echoes the HTTP headers, request parameters and the complete URI requested."
+			},
+			"response": [
+				{
+					"name": "AnotherMethodExample",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://postman-echo.com/get?foo1=bar1&foo2=bar2",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "foo1",
+									"value": "bar1"
+								},
+								{
+									"key": "foo2",
+									"value": "bar2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"name": "Content-Encoding",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"key": "Content-Length",
+							"value": "338",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Aug 2018 11:29:44 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c7-oTm3SEbfq6d4JmiUigJOzlLMcG8\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "nginx",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3AxHbvVt6XrPnMUu_bUzgfwGwHPYtyp6Av.UEO9n9LeQIs4rrXlLsTy3IYRB9xp9sTrfAeS5Uo288M; Path=/; HttpOnly",
+							"name": "set-cookie",
+							"description": "an HTTP cookie"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT+0000 (GMT)",
+							"httpOnly": true,
+							"domain": "postman-echo.com",
+							"path": "/",
+							"secure": false,
+							"value": "s%3AxHbvVt6XrPnMUu_bUzgfwGwHPYtyp6Av.UEO9n9LeQIs4rrXlLsTy3IYRB9xp9sTrfAeS5Uo288M",
+							"key": "sails.sid"
+						}
+					],
+					"body": "{\"args\":{\"foo1\":\"bar1\",\"foo2\":\"bar2\"},\"headers\":{\"host\":\"postman-echo.com\",\"accept\":\"*/*\",\"accept-encoding\":\"gzip, deflate\",\"cache-control\":\"no-cache\",\"cookie\":\"sails.sid=s%3ARy0lKaJH8oKLKXwR1wkv-68nVuVhW7s9.zCr1iqN2zrbdTzuzeKBDdOTYO5MxwXdKyglNU0rpPcA\",\"postman-token\":\"a58d65bf-942c-468a-980e-d5c546fec378\",\"user-agent\":\"PostmanRuntime/7.2.0\",\"x-forwarded-port\":\"443\",\"x-forwarded-proto\":\"https\"},\"url\":\"https://postman-echo.com/get?foo1=bar1&foo2=bar2\"}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0d02a55a-0ed4-4814-a6ae-352609326f38",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d5189539-196a-4251-9749-3e98eb912cfb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

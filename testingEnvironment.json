@@ -1,0 +1,34 @@
+{
+  "id": "4f84826d-c549-47d3-a468-bfed1e8b951f",
+  "name": "TestingEnvironment",
+  "values": [
+    {
+      "key": "testingValue",
+      "value": "0",
+      "description": "",
+      "enabled": true
+    },
+    {
+      "key": "test",
+      "value": "test",
+      "description": "",
+      "enabled": true
+    },
+    {
+      "key": "get",
+      "value": "get",
+      "description": "",
+      "enabled": true
+    },
+    {
+      "key": "gender",
+      "value": "male",
+      "description": "",
+      "type": "text",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2018-08-16T13:25:41.307Z",
+  "_postman_exported_using": "Postman/6.2.4"
+}
