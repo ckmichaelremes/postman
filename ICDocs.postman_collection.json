@@ -1,0 +1,2447 @@
+{
+	"info": {
+		"_postman_id": "7d5f51a7-ce25-4f59-9b1b-235f09a5ff3f",
+		"name": "ICDocs",
+		"description": "ICDocs is the fastest, simplest document share application designed specifically for service companies.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Retrieves details on the current user.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "31ae616b-013d-42c5-8a9c-a93d97a00fad",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//pm.test(\"Response time is less than 400ms\", function () {",
+									"//    pm.expect(pm.response.responseTime).to.be.below(400);",
+									"//});",
+									"",
+									"tests[\"body contains id\"] = responseBody.has(\"id\");",
+									"tests[\"body contains name\"] = responseBody.has(\"name\");",
+									"tests[\"body contains phone\"] = responseBody.has(\"phone\");",
+									"tests[\"body contains email\"] = responseBody.has(\"email\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me"
+							]
+						},
+						"description": "Shows details on the currently logged in user"
+					},
+					"response": [
+						{
+							"name": "Retrieves details on the current user.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 08:59:39 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 68126347056de2d05be3dd362ccba987.cloudfront.net (CloudFront), 1.1 fda8e723e76885a5a82b1728275c99fb.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "XBnR5TLYFN1zxAEKBLv3np8NPk-_j35UVAB-wD-hdfSEE1vL_0pKkg==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b753cfb-010ef678fd8804315cee3ea8;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LtZ3PHDpjoEFXXw=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "b4fcc077-a132-11e8-8e87-cda47af89c4c",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":\"c717f214-aa3b-449f-8833-981192a10280\",\"name\":\"MichaelRemes\",\"phone\":\"+420732970146\",\"email\":\"michael.remes@cloudkickers.cz\"}"
+						}
+					]
+				},
+				{
+					"name": "Retrieves the current user's settings.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "942dab85-42db-41f4-a87b-4c1677cbd7c6",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"tests[\"body contains email_alerts\"] = responseBody.has(\"email_alerts\");",
+									"tests[\"body contains sms_alerts\"] = responseBody.has(\"sms_alerts\");",
+									"tests[\"body contains created_at\"] = responseBody.has(\"created_at\");",
+									"tests[\"body contains updated_at\"] = responseBody.has(\"updated_at\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me/settings",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me",
+								"settings"
+							]
+						},
+						"description": "Shows settings of currently logged in user."
+					},
+					"response": [
+						{
+							"name": "Retrieves the current user's settings.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me/settings",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me",
+										"settings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 11:38:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 3eebab739de5f3b3016088352ebea37f.cloudfront.net (CloudFront), 1.1 12dfa49c91f667ae4389431a4c232baf.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Q4q2VCfXbkkGxOhh4roRGoFWZcRaYZ0ZbtkVMFHD6J8mrk2W1V_gmw==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72bf22-be6ed11dcd44bf23124aac61;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LnLNWF5HjoEF2LQ=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "8538b34a-9fb6-11e8-8288-852411c1b1ad",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "{\"email_alerts\":0,\"sms_alerts\":0,\"created_at\":\"2018-08-07T08:08:41.000Z\",\"updated_at\":\"2018-08-07T08:08:41.000Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Updates the current user's settings.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13fed5e1-cdc1-4619-b662-8617d63728f6",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"",
+									"var responseJSON;",
+									"",
+									"try { ",
+									"    responseJSON = JSON.parse(responseBody); ",
+									"    tests['response is valid JSON'] = true;",
+									"}",
+									"catch (e) { ",
+									"    responseJSON = {}; ",
+									"    tests['response is valid JSON'] = false;",
+									"}",
+									"",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email_alerts\": 1,\n  \"sms_alerts\": 0,\n  \"created_at\": \"2018-08-07T08:08:41.000Z\",\n  \"updated_at\": \"2018-08-07T08:08:41.000Z\"\n}"
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me/settings",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me",
+								"settings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Updates the current user's settings.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_alerts\": 10,\n  \"sms_alerts\": 0,\n  \"created_at\": \"2018-08-07T08:08:41.000Z\",\n  \"updated_at\": \"2018-08-07T08:08:41.000Z\"\n}"
+								},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me/settings",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me",
+										"settings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 09:04:38 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f7c2c81dcd8f9c4723ba9992c4abd851.cloudfront.net (CloudFront), 1.1 7c1dd6ec3a2968c60e7c975e26a3924c.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "YRyMc2zj083HQa50dKMJK6eSTSw5uUW0ibI_ChMImaaaSneAgUGb0Q==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b753e25-8d35ae886a5d9c76af308092;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "Ltal5HEIDoEFlgQ=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "66fb9e06-a133-11e8-9698-2529f67faa41",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "{\"email_alerts\":10,\"sms_alerts\":0,\"created_at\":\"2018-08-07T08:08:41.000Z\",\"updated_at\":\"2018-08-16T09:04:38.000Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Retrieves the current user's notifications.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d525c5c-a135-4e4e-bcd3-23b4536f9019",
+								"type": "text/javascript",
+								"exec": [
+									"var responseJSON;",
+									"",
+									"try { ",
+									"    responseJSON = JSON.parse(responseBody); ",
+									"    tests['response is valid JSON'] = true;",
+									"}",
+									"catch (e) { ",
+									"    responseJSON = {}; ",
+									"    tests['response is valid JSON'] = false;",
+									"}",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me/notifications",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me",
+								"notifications"
+							]
+						},
+						"description": "Shows all notifications of currently logged in user."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves the current user's unread notifications.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7480a506-381a-4d84-9f0d-842ea239196a",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"tests[\"Body contains \\\"true\\\" or \\\"false\\\" message\"] = responseBody.has(\"true\") || responseBody.has(\"false\") ;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me/notifications/unread",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me",
+								"notifications",
+								"unread"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retrieves the current user's unread notifications.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me/notifications/unread",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me",
+										"notifications",
+										"unread"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 13:29:04 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 33c6dd8e19bd13f8b27fdbede0118997.cloudfront.net (CloudFront), 1.1 89033043c124289b2dedc4a7c50bd2e1.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "hOvWp6yhtAGuSziAeIMDYHVhFZuHn_fR7gdAtBGlpN7dz9x9S7jWBQ==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72d920-0ef1705001a2fc5c523a578c;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LnbdEEWjDoEF_XQ=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "036ce886-9fc6-11e8-ab57-bbc79824c041",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						},
+						{
+							"name": "Retrieves the current user's unread notifications.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me/notifications/unread",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me",
+										"notifications",
+										"unread"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 11:37:18 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 9e8de5c9df63792542eb5a7cf3cff257.cloudfront.net (CloudFront), 1.1 12dfa49c91f667ae4389431a4c232baf.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Du8pTEiNz4xgobZQ7nODIbWHf6ZoCffPVEzlrKsidhmt4qt4JvHv5w==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72beee-b3a19a0cc15abf5c8bca6594;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LnLFOGy0joEFbNw=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "6638c1d7-9fb6-11e8-8ba5-2d8e9c5da77f",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "false"
+						}
+					]
+				},
+				{
+					"name": "Mark the current user's notifications as read.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8303041-00ca-4aaa-99df-0f223a24ef43",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"tests[\"Body contains \\\"true\\\" message\"] = responseBody.has(\"true\")"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/users/me/notifications/unread",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"users",
+								"me",
+								"notifications",
+								"unread"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Mark the current user's notifications as read.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/users/me/notifications/unread",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"users",
+										"me",
+										"notifications",
+										"unread"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 11:24:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 1adb71c3a8ee5df228c6a2225a5273ba.cloudfront.net (CloudFront), 1.1 040b216e25d8dcd23289aa6ea5fa0ca5.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "tBeOPBxrYOk0djv3to-V9RdDTUVBHDoaAsewwOi_aypA4UU59aZlWg==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72bbda-86fa048cb96f19c49bd65400;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LnJKMEkWDoEFzmg=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "90e0c78e-9fb4-11e8-a0b2-a3836b9c8f14",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				}
+			],
+			"description": "Folder with methods for user interaction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ffa45-d055-484d-a85d-06710a68a18e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "45b2a9ad-904f-4d79-b697-54933cc4c841",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "Retrieve the accounts owned by the current user.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7638e54-3f0f-44dd-9de7-fc49470ba605",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"tests[\"body contains id\"] = responseBody.has(\"id\");",
+									"tests[\"body contains is_primary_account\"] = responseBody.has(\"id\");",
+									"tests[\"body contains name\"] = responseBody.has(\"name\");",
+									"tests[\"body contains created_at\"] = responseBody.has(\"created_at\");",
+									"tests[\"body contains updated_at\"] = responseBody.has(\"updated_at\");",
+									"tests[\"body contains email\"] = responseBody.has(\"email\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the account.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aede1b53-fa39-4d1f-be40-681c8cc5f4cd",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"tests[\"body contains id\"] = responseBody.has(\"id\");",
+									"tests[\"body contains is_primary_account\"] = responseBody.has(\"id\");",
+									"tests[\"body contains name\"] = responseBody.has(\"name\");",
+									"tests[\"body contains created_at\"] = responseBody.has(\"created_at\");",
+									"tests[\"body contains updated_at\"] = responseBody.has(\"updated_at\");",
+									"tests[\"body contains email\"] = responseBody.has(\"email\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "{{accountID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the account.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aed94e3d-b15a-48a3-be29-f34a2c7dbb85",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/accounts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"accounts"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "{{accountID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the subscription for the account.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0bb9a6d-ee2c-4acf-817c-f9a10d36d7d0",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/subscription",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"subscription"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "{{accountID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the vaults assigned to the account.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1890457-16d9-4957-8895-92e3665b3621",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "{{accountID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retrieve the vaults assigned to the account.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"accounts",
+										":account",
+										"vaults"
+									],
+									"variable": [
+										{
+											"key": "account",
+											"value": "{{account}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "347",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 14:50:29 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 9e8de5c9df63792542eb5a7cf3cff257.cloudfront.net (CloudFront), 1.1 a654b4b54d3322bdcbd8b65f511761c1.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "InUMtGQd5xt4tBBIBbUw6zCq7wr9SAZUJrOduSFiZzDBl-acaA93KA==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72ec35-660b2d526b5e1e20d254655c;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "LnnYTE7MjoEFfQw=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "62eab4bf-9fd1-11e8-996d-05a6bb261a7f",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\":\"f1474ef5-9fc5-11e8-b1a0-0235156c00d8\",\"name\":\"QuickShare\",\"ownership_type\":\"owned\",\"is_quickshare\":1,\"retention_period\":26,\"created_at\":\"2018-08-14T13:28:34.000Z\",\"updated_at\":\"2018-08-14T13:28:34.000Z\",\"size\":0,\"collaborators\":1,\"account_initials\":\"M\",\"rank\":35,\"account_id\":\"f0dfb626-9fc5-11e8-b1a0-0235156c00d8\",\"collaborator_id\":null}]"
+						}
+					]
+				},
+				{
+					"name": "Create a new vault in the account.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "f0dfb626-9fc5-11e8-b1a0-0235156c00d8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the dashboard data for the account.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "911f3b79-3794-4143-9dd0-93186b307180",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/dashboard",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"dashboard"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the vault.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c6ac24c-6cef-4c59-b423-7cbd55e1b1b5",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults",
+								":vault"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": "{{accountID}}"
+								},
+								{
+									"key": "vault",
+									"value": "{{vaultID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retrieve the vault.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault",
+									"protocol": "https",
+									"host": [
+										"api",
+										"icdocs",
+										"co",
+										"uk"
+									],
+									"path": [
+										"dev",
+										"accounts",
+										":account",
+										"vaults",
+										":vault"
+									],
+									"variable": [
+										{
+											"key": "account",
+											"value": "{{accountID}}"
+										},
+										{
+											"key": "vault",
+											"value": "{{vaultID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "345",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Aug 2018 15:28:24 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 ecc7ae9bd7e2ffe0dba8cd850834efd5.cloudfront.net (CloudFront), 1.1 22513a5f32c464af3c0b3d4e3c135033.cloudfront.net (CloudFront)",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "b-FtWGNwzBhkRcYv7ycT3nb-qGZHEU2EKC7uKJdbosiZKHZeSVl9Nw==",
+									"name": "X-Amz-Cf-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-5b72f518-c99a72ed430d2a56df3eb5a1;Sampled=0",
+									"name": "X-Amzn-Trace-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront",
+									"name": "X-Cache",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "Lns7xHFbjoEFtcQ=",
+									"name": "x-amz-apigw-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "aef3a1e4-9fd6-11e8-888c-ef0a69d8c595",
+									"name": "x-amzn-RequestId",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":\"f1474ef5-9fc5-11e8-b1a0-0235156c00d8\",\"name\":\"QuickShare\",\"ownership_type\":\"owned\",\"is_quickshare\":1,\"retention_period\":26,\"created_at\":\"2018-08-14T13:28:34.000Z\",\"updated_at\":\"2018-08-14T13:28:34.000Z\",\"size\":0,\"collaborators\":1,\"account_initials\":\"M\",\"rank\":35,\"account_id\":\"f0dfb626-9fc5-11e8-b1a0-0235156c00d8\",\"collaborator_id\":null}"
+						}
+					]
+				},
+				{
+					"name": "Update the vault.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults",
+								":vault"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the vault.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults",
+								":vault"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the boxes for the vault.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault/boxes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults",
+								":vault",
+								"boxes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new box within the vault.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/vaults/:vault/boxes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"vaults",
+								":vault",
+								"boxes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a box assigned to the account.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/boxes/:box",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"boxes",
+								":box"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the box.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/boxes/:box",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"boxes",
+								":box"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the box.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/boxes/:box",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"boxes",
+								":box"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the files within the box.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/boxes/:box/files",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"boxes",
+								":box",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an upload URL for a box.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/boxes/:box/files",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"boxes",
+								":box",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a file assigned to the account.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/files/:file",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"files",
+								":file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the file.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/files/:file",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"files",
+								":file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the file.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/files/:file",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"files",
+								":file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a download link for a file.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/files/:file/download",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"files",
+								":file",
+								"download"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve the comments for an object.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/:object_type/:object/comments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								":object_type",
+								":object",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a new comment. Returns the ID of the newly posted comment.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/:object_type/:object/comments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								":object_type",
+								":object",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a comment.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/comments/:comment",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"comments",
+								":comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a collaborator's details assigned to the account.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/users/:user",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"users",
+								":user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an invitation.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/invitations/:invitation",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"invitations",
+								":invitation"
+							],
+							"variable": [
+								{
+									"key": "account",
+									"value": ""
+								},
+								{
+									"key": "invitation",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept an invitation.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.icdocs.co.uk/dev/accounts/:account/invitations/:invitation",
+							"protocol": "https",
+							"host": [
+								"api",
+								"icdocs",
+								"co",
+								"uk"
+							],
+							"path": [
+								"dev",
+								"accounts",
+								":account",
+								"invitations",
+								":invitation"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for accounts"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJraWQiOiJTTDA2VkFsb0Zub1ZqUVwvbE1MWTV6K2dhQjJXK2ZSK2lCVjFpVG1KMDQ5Zz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNzE3ZjIxNC1hYTNiLTQ0OWYtODgzMy05ODExOTJhMTAyODAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMS5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTFfeWxBbk41UGx6IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImM3MTdmMjE0LWFhM2ItNDQ5Zi04ODMzLTk4MTE5MmExMDI4MCIsImF1ZCI6IjdxZ25wbnJiNWRudmx1Z2hpZjhndjA3am90IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE1MzQ0MDk5NDksIm5hbWUiOiJNaWNoYWVsUmVtZXMiLCJwaG9uZV9udW1iZXIiOiIrNDIwNzMyOTcwMTQ2IiwiZXhwIjoxNTM0NDEzNTQ5LCJpYXQiOjE1MzQ0MDk5NDksImVtYWlsIjoibWljaGFlbC5yZW1lc0BjbG91ZGtpY2tlcnMuY3oifQ.VUAV02YyEFBwhDegvMyfzpVWLzkpImLnybbcVbRu0tpkxzkAG_S0Xd0aABFqDur4xfBrl58C9lYfp6-4BnwjmnF_bG0L4dFefIjOnZwLXz6FrUFOWJsJ5R3HXTHmVwzf23qrfZgd6Y3OXyLF1AAnF84XI6WvrxYstNhD4EhYU67YdAYEmGSDRd9h9XTKJROpJLqzGyWQcByuPEdHJJBaZLoCb34VBjPEKz3oIgJ2CICuPfTXLhblPY5DDs51mwE7EzQ-OppOrxVIg6sqxLWksNo_kk0AJfT9Swyb3VDLqrSvqt7O_GB7aXWGcf74gymwTVTUtqJSTKnX7W-hyCAAvg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fa187939-5063-456f-82e8-e8d27905e676",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "be625e9d-d42f-421b-8e40-80543ef2f7db",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
